@@ -1,0 +1,96 @@
+:root{
+    --electric: #0079ff;
+    --gray: #697c9a;
+    --darkSky: #4b6a9b;
+    --darkBlue: #2b3442;
+    --lightBg: #f6f8ff;
+    --light: #fefefe;
+    --white: #ffffff;
+    --dark: #141d2f;
+    --semiDark: #1e2a47;
+    --error: #f74646;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+body{
+    background: #141d2f;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+}
+
+.cardBody{
+    /* background: whitesmoke; */
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3em 0em;
+    color: whitesmoke;
+}
+
+.lightSwitch{
+    display: flex;
+    align-items: center;
+}
+
+.lightSwitch h3{
+    display: inline;
+    margin: 0em 1em;
+}
+
+#moon{
+    display: none;
+}
+
+.inputDiv{
+    background: #1e2a47; 
+    width: 90%;
+    padding: 1em 0em;
+    border: 1px solid #1e2a47;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.inputDiv input{
+    background-color: #1e2a47;
+    border: none;
+    outline: none;
+    width: 80%;
+    height: 40px;
+    caret-color: whitesmoke;
+    text-indent: 5px;
+    font-family: "Space Mono", monospace;
+    font-size: 1.2rem;
+    color: whitesmoke;
+}
+
+input::placeholder{
+    font-family: "Space Mono", monospace;
+    font-size: 1.2rem;
+    position: relative;
+    bottom: 0px;
+}
+
+.Btn{
+    font-weight: 700;
+}
