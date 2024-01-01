@@ -37,7 +37,7 @@ body{
 }
 
 header{
-    width: 90%;
+    width: 93%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,12 +61,12 @@ header{
 
 .inputDiv{
     background: #1e2a47; 
-    width: 90%;
-    padding: 1em 0em;
+    width: 93%;
+    padding: 0.5em 0.6em 0.5em 1em;
     border: 1px solid #1e2a47;
     border-radius: 15px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     position: relative;
 }
@@ -93,4 +93,7 @@ input::placeholder{
 
 .Btn{
     font-weight: 700;
+    background-color: #0079ff;
+    padding: 1em;
+    border-radius: 10px;
 }
