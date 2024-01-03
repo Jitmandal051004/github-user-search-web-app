@@ -25,11 +25,12 @@ body{
     align-items: center;
     font-family: 'Fraunces', serif;
     font-size: 16px;
+    color: whitesmoke;
 }
 
 .cardBody{
     /* background: whitesmoke; */
-    width: 60%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -37,12 +38,12 @@ body{
 }
 
 header{
-    width: 93%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 3em 0em;
-    color: whitesmoke;
+    
 }
 
 .lightSwitch{
@@ -69,6 +70,7 @@ header{
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .inputDiv input{
@@ -86,6 +88,7 @@ header{
 
 input::placeholder{
     font-family: "Space Mono", monospace;
+    color: whitesmoke;
     font-size: 1.2rem;
     position: relative;
     bottom: 0px;
@@ -94,6 +97,152 @@ input::placeholder{
 .Btn{
     font-weight: 700;
     background-color: #0079ff;
+    
     padding: 1em;
     border-radius: 10px;
+    transition-property: background-color, transform;
+    transition-duration: 350ms;
+    transition-timing-function: cubic-bezier(0.54, 0.01, 1, 1);
+    cursor: pointer;
+}
+
+.Btn:hover{
+    background-color: whitesmoke;
+    color: #0079ff;
+    transform: scale(0.975, 0.975);
+}
+
+.userBox{
+    width: 90%;
+    padding: 30px;
+    background: #1e2a47; 
+    border-radius: 15px;
+    display: none;
+    justify-content: space-between;
+}
+
+@keyframes slideIn{
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes goUp {
+    from{
+        transform: translateY(35px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+
+.ProfilePic img{
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    margin: 1.2em;
+}
+
+.InfoBox{
+    width: 75%;
+}
+
+.user{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.25em;
+}
+
+.joinDate{
+    font-weight: 100;
+}
+
+.bio{
+    color: var(--white);
+    opacity: 0.5;
+    font-size: 1rem;
+    margin: 2em 0em;
+}
+
+.RepInfo{
+    background-color: var(--dark);
+    display: grid;
+    width: 100%;
+    grid-template: 1fr / repeat(3,1fr);
+    border-radius: 15px;
+    padding: 1em 0em;
+    margin: 0em 0em 3em 0em;
+}
+
+.RepInfo > div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.RepInfo > div > h5{
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-bottom: 0.5em;
+}
+
+.RepInfo > div > h3{
+    font-size: 1.7rem;
+}
+
+.UserInfo{
+    display: grid;
+    grid-template: repeat(2,1fr) / repeat(2,1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info > div{
+    display: inline-flex;
+    opacity: 0.5;
+    margin-left: 1em;
+}
+
+@media screen and (max-width: 1200px) {
+    .cardBody{
+        width: 60%;
+    }
+
+    .ProfilePic{
+        margin-right: 1.5em;
+    }
+    .user{
+        flex-direction: column;
+        gap: 0.5em;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .cardBody{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .cardBody{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .cardBody{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .cardBody{
+        width: 95%;
+    }
 }
