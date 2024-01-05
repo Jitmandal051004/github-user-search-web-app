@@ -30,7 +30,7 @@ body{
 
 .cardBody{
     /* background: whitesmoke; */
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -117,7 +117,7 @@ input::placeholder{
     padding: 30px;
     background: #1e2a47; 
     border-radius: 15px;
-    display: none;
+    display: flex;
     justify-content: space-between;
 }
 
@@ -141,7 +141,7 @@ input::placeholder{
     }
 }
 
-.ProfilePic img{
+#DesktopPic{
     height: 120px;
     width: 120px;
     border-radius: 100%;
@@ -159,8 +159,16 @@ input::placeholder{
     gap: 0.25em;
 }
 
+#MobilePic{
+    display: none;
+}
+
+.nameNId h5{
+    color: var(--electric)
+}
+
 .joinDate{
-    font-weight: 100;
+    opacity: 0.5;
 }
 
 .bio{
@@ -236,13 +244,39 @@ input::placeholder{
 }
 
 @media screen and (max-width: 550px) {
+    body{
+        font-size: 14px;
+    }
+
     .cardBody{
+        height: 90vh;
         width: 90%;
     }
-}
 
-@media screen and (max-width: 450px) {
-    .cardBody{
-        width: 95%;
+    .InfoBox{
+        width: 100%;
+    }
+
+    .ProfilePic{
+        display: none;
+    }
+
+    #MobilePic{
+        display: inline-flex;
+        height: 70px;
+        width: 70px;
+        border-radius: 100px;
+    }
+
+    .bio{
+        
+    }
+
+    .RepInfo{
+    
+    }
+
+    .UserInfo{
+        grid-template: repeat(4,1fr)/ 1fr;
     }
 }
