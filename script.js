@@ -2,27 +2,38 @@ import config from './config.js';
 
 const header = document.querySelector('header');
 const inputDiv = document.querySelector('.inputDiv');
-const userName = inputDiv.querySelector('#inputUserName')
+const inputUserName = inputDiv.querySelector('#inputUserName')
 const btn = document.querySelector('.Btn');
+const errorState = document.querySelector('.errorState')
 const userBox = document.querySelector('.userBox');
 const DesktopPic = userBox.querySelector('.Desktop.Pic');
 const MobilePic = userBox.querySelector('.Mobile.Pic');
+const name = userBox.querySelector('#Name');
+const userName = userBox.querySelector('#userName');
+const joinDate = userBox.querySelector('#date');
+const bio = userBox.querySelector('.bio');
+const repoNum = userBox.querySelector('#RepoNo');
+const followerNum = userBox.querySelector('#FollowersNo');
+const followingNum = userBox.querySelector('#FollowingNo');
+const location = userBox.querySelector('.locName');
+const twitterHandle =  userBox.querySelector('.TwitHandle');
+const website = userBox.querySelector('.websiteLink');
+const compName = userBox.querySelector('.CompName');
 
 //sliding animation for user card
-btn.addEventListener('click', () => {
-    userBox.style.animation = 'slideIn 2000ms';
-    header.style.animation = 'goUp 2000ms';
-    inputDiv.style.animation = 'goUp 2000ms ';
-    userBox.style.display = 'flex';
-});
+// btn.addEventListener('click', () => {
+//     userBox.style.animation = 'slideIn 2000ms';
+//     header.style.animation = 'goUp 2000ms';
+//     inputDiv.style.animation = 'goUp 2000ms ';
+//     userBox.style.display = 'flex';
+// });
 
 let gitUserName;
 const accessToken = config.accessToken;
-const nameUser = '';
 
 //grabbing the username from input div and using api to find info about it
 btn.addEventListener('click', () => {
-    gitUserName = userName.value
+    gitUserName = inputUserName.value
     console.log(gitUserName)
 
     fetch(`https://api.github.com/users/${gitUserName}`, {
@@ -35,23 +46,64 @@ btn.addEventListener('click', () => {
             console.log(data);
             DesktopPic.src = data.avatar_url;
             MobilePic.src = data.avatar_url;
+            name.textContent = data.name;
+            userName.textContent = `@${data.login}`;
+            joinDate.textContent = formatDate(data.created_at);
+            if(data.bio){
+                bio.textContent = data.bio;
+                bio.style.opacity = '0.8';
+            }
+            repoNum.textContent = data.public_repos;
+            followerNum.textContent = data.followers;
+            followingNum.textContent = data.following;
+            if(data.location){
+                location.textContent = data.location;
+            }
+            if(data.twitter_username){
+                twitterHandle.textContent = data.twitter_username;
+                twitterHandle.href = `https://twitter.com/${data.twitter_username}`;
+                twitterHandle.style.opacity = '1';
+            }
+            if(data.blog){
+                website.textContent = data.blog;
+                website.href = data.blog;
+                website.style.opacity = '1';
+            }
+            if(data.company){
+                compName.textContent = data.company;
+                compName.style.opacity = '1';
+            }
+
+            userBox.style.animation = 'slideIn 2000ms';
+            header.style.animation = 'goUp 2000ms';
+            inputDiv.style.animation = 'goUp 2000ms ';
+            userBox.style.display = 'flex';
+        })
+        .catch(error => {
+            errorState.style.display = 'flex';
+            errorState.style.animation = 'errorMotion 500ms ease-out 2 ';
+            header.style.animation = 'errorMotion 500ms ease-out 2';
+            inputDiv.style.animation = 'errorMotion 500ms ease-out 2';
+
+            setTimeout(() => {
+                errorState.style.display = 'none'
+            }, 2000);
         })
     })
 
-// avatar_url
-// bio
-// blog
-// company
-// created_at
-// email
-// followers
-// following
-// following_url
-// html_url
-// location
-// login
-// name
-// organizations_url
-// public_gists
-// public_repos
-// twitter
+//getting the date in correct format
+function formatDate(createdAt){
+    let dateRaw = createdAt.slice(0,10);
+
+    const dateParts = dateRaw.split('-');
+    const day = dateParts[2];
+    const monthNum = parseInt(dateParts[1],10);
+    const year = dateParts[0];
+
+    const monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const month = monthName[monthNum - 1];
+
+    const date = `${day} ${month} ${year}`
+    return date;
+}
