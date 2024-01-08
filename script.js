@@ -15,18 +15,10 @@ const bio = userBox.querySelector('.bio');
 const repoNum = userBox.querySelector('#RepoNo');
 const followerNum = userBox.querySelector('#FollowersNo');
 const followingNum = userBox.querySelector('#FollowingNo');
-const location = userBox.querySelector('.locName');
+const locationName = userBox.querySelector('.locName');
 const twitterHandle =  userBox.querySelector('.TwitHandle');
 const website = userBox.querySelector('.websiteLink');
 const compName = userBox.querySelector('.CompName');
-
-//sliding animation for user card
-// btn.addEventListener('click', () => {
-//     userBox.style.animation = 'slideIn 2000ms';
-//     header.style.animation = 'goUp 2000ms';
-//     inputDiv.style.animation = 'goUp 2000ms ';
-//     userBox.style.display = 'flex';
-// });
 
 let gitUserName;
 const accessToken = config.accessToken;
@@ -57,7 +49,8 @@ btn.addEventListener('click', () => {
             followerNum.textContent = data.followers;
             followingNum.textContent = data.following;
             if(data.location){
-                location.textContent = data.location;
+                locationName.textContent = data.location;
+                locationName.style.opacity = '1';
             }
             if(data.twitter_username){
                 twitterHandle.textContent = data.twitter_username;
@@ -80,14 +73,15 @@ btn.addEventListener('click', () => {
             userBox.style.display = 'flex';
         })
         .catch(error => {
+            userBox.style.display = 'none';
             errorState.style.display = 'flex';
-            errorState.style.animation = 'errorMotion 500ms ease-out 2 ';
-            header.style.animation = 'errorMotion 500ms ease-out 2';
-            inputDiv.style.animation = 'errorMotion 500ms ease-out 2';
+            errorState.style.animation = 'errorMotion 80ms linear 6 alternate ';
+            header.style.animation = 'errorMotion 80ms linear 6 alternate';
+            inputDiv.style.animation = 'errorMotion 80ms linear 6 alternate';
 
-            setTimeout(() => {
-                errorState.style.display = 'none'
-            }, 2000);
+            // setTimeout(() => {
+            //     location.reload();
+            // }, 1750);
         })
     })
 
