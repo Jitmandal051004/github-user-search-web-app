@@ -1,8 +1,12 @@
+import config from './config.js';
+
 const header = document.querySelector('header');
 const inputDiv = document.querySelector('.inputDiv');
 const userName = inputDiv.querySelector('#inputUserName')
 const btn = document.querySelector('.Btn');
 const userBox = document.querySelector('.userBox');
+const DesktopPic = userBox.querySelector('.Desktop.Pic');
+const MobilePic = userBox.querySelector('.Mobile.Pic');
 
 //sliding animation for user card
 btn.addEventListener('click', () => {
@@ -13,7 +17,7 @@ btn.addEventListener('click', () => {
 });
 
 let gitUserName;
-const accessToken = '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';
+const accessToken = config.accessToken;
 const nameUser = '';
 
 //grabbing the username from input div and using api to find info about it
@@ -29,9 +33,25 @@ btn.addEventListener('click', () => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            DesktopPic.src = data.avatar_url;
+            MobilePic.src = data.avatar_url;
         })
+    })
 
-        // nameUser =  data.name;
-        // console.log(nameUser);
-})
-
+// avatar_url
+// bio
+// blog
+// company
+// created_at
+// email
+// followers
+// following
+// following_url
+// html_url
+// location
+// login
+// name
+// organizations_url
+// public_gists
+// public_repos
+// twitter

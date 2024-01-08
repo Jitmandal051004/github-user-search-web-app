@@ -30,7 +30,7 @@ body{
 
 .cardBody{
     /* background: whitesmoke; */
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -117,11 +117,11 @@ input::placeholder{
     padding: 30px;
     background: #1e2a47; 
     border-radius: 15px;
-    display: flex;
+    display: none;
     justify-content: space-between;
 }
 
-@keyframes slideIn{
+@keyframes slideIn{ 
     from {
         transform: translateY(150px);
         opacity: 0;
@@ -141,7 +141,11 @@ input::placeholder{
     }
 }
 
-#DesktopPic{
+.ProfilePic{
+    margin-right: 1.5em;
+}
+
+.Pic{
     height: 120px;
     width: 120px;
     border-radius: 100%;
@@ -159,7 +163,7 @@ input::placeholder{
     gap: 0.25em;
 }
 
-#MobilePic{
+.Mobile{
     display: none;
 }
 
@@ -222,9 +226,6 @@ input::placeholder{
         width: 60%;
     }
 
-    .ProfilePic{
-        margin-right: 1.5em;
-    }
     .user{
         flex-direction: column;
         gap: 0.5em;
@@ -245,12 +246,13 @@ input::placeholder{
 
 @media screen and (max-width: 550px) {
     body{
-        font-size: 14px;
+        font-size: 13.5px;
     }
 
     .cardBody{
         height: 90vh;
         width: 90%;
+        justify-content: center;
     }
 
     .InfoBox{
@@ -261,19 +263,16 @@ input::placeholder{
         display: none;
     }
 
-    #MobilePic{
+    .userNMobilePic{
+        display: flex;
+    }
+
+    .Mobile{
         display: inline-flex;
         height: 70px;
         width: 70px;
         border-radius: 100px;
-    }
-
-    .bio{
-        
-    }
-
-    .RepInfo{
-    
+        margin: 0 5% 0 0;
     }
 
     .UserInfo{
