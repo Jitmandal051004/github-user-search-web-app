@@ -24,7 +24,15 @@ let gitUserName;
 const accessToken = config.accessToken;
 
 //grabbing the username from input div and using api to find info about it
-btn.addEventListener('click', () => {
+btn.addEventListener('click', fetchData);
+inputUserName.addEventListener('keydown',(event) => {
+    if(event.key === 'Enter'){
+        fetchData();
+    }
+})
+
+//fetching function
+function fetchData() {
     gitUserName = inputUserName.value
     console.log(gitUserName)
 
@@ -58,9 +66,12 @@ btn.addEventListener('click', () => {
                 twitterHandle.style.opacity = '1';
             }
             if(data.blog){
-                website.textContent = data.blog;
                 website.href = data.blog;
                 website.style.opacity = '1';
+
+                //getting the domain name
+                const urlBlog = new URL(data.blog);
+                website.textContent = urlBlog.hostname;
             }
             if(data.company){
                 compName.textContent = data.company;
@@ -79,11 +90,11 @@ btn.addEventListener('click', () => {
             header.style.animation = 'errorMotion 80ms linear 6 alternate';
             inputDiv.style.animation = 'errorMotion 80ms linear 6 alternate';
 
-            // setTimeout(() => {
-            //     location.reload();
-            // }, 1750);
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
         })
-    })
+}
 
 //getting the date in correct format
 function formatDate(createdAt){
