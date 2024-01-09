@@ -20,8 +20,7 @@ const twitterHandle =  userBox.querySelector('.TwitHandle');
 const website = userBox.querySelector('.websiteLink');
 const compName = userBox.querySelector('.CompName');
 
-let gitUserName;
-const accessToken = config.accessToken;
+// const accessToken = config.accessToken;
 
 //grabbing the username from input div and using api to find info about it
 btn.addEventListener('click', fetchData);
@@ -33,7 +32,7 @@ inputUserName.addEventListener('keydown',(event) => {
 
 //fetching function
 function fetchData() {
-    gitUserName = inputUserName.value
+    const gitUserName = inputUserName.value
     console.log(gitUserName)
 
     fetch(`https://api.github.com/users/${gitUserName}`)//, {
