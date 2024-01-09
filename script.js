@@ -1,4 +1,4 @@
-import config from './config.js';
+// import config from './config.js';
 
 const header = document.querySelector('header');
 const inputDiv = document.querySelector('.inputDiv');
@@ -36,11 +36,11 @@ function fetchData() {
     gitUserName = inputUserName.value
     console.log(gitUserName)
 
-    fetch(`https://api.github.com/users/${gitUserName}`, {
-        header: {
-            Authorization: `Bearer ${accessToken}`
-        }
-    })
+    fetch(`https://api.github.com/users/${gitUserName}`)//, {
+    //     header: {
+    //         Authorization: `Bearer ${accessToken}`
+    //     }
+    // })
         .then(response => response.json())
         .then(data => {
             console.log(data);
