@@ -1,5 +1,3 @@
-// import config from './config.js';
-
 const header = document.querySelector('header');
 const inputDiv = document.querySelector('.inputDiv');
 const inputUserName = inputDiv.querySelector('#inputUserName')
@@ -20,8 +18,6 @@ const twitterHandle =  userBox.querySelector('.TwitHandle');
 const website = userBox.querySelector('.websiteLink');
 const compName = userBox.querySelector('.CompName');
 
-// const accessToken = config.accessToken;
-
 //grabbing the username from input div and using api to find info about it
 btn.addEventListener('click', fetchData);
 inputUserName.addEventListener('keydown',(event) => {
@@ -35,11 +31,7 @@ function fetchData() {
     const gitUserName = inputUserName.value
     console.log(gitUserName)
 
-    fetch(`https://api.github.com/users/${gitUserName}`)//, {
-    //     header: {
-    //         Authorization: `Bearer ${accessToken}`
-    //     }
-    // })
+    fetch(`https://api.github.com/users/${gitUserName}`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
