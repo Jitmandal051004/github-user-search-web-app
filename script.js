@@ -36,46 +36,45 @@ function fetchData() {
         .then(data => {
             console.log(data);
 
-            if(data && data.login){
-                DesktopPic.src = data.avatar_url;
-                MobilePic.src = data.avatar_url;
-                actName.textContent = data.name;
-                userName.textContent = `@${data.login}`;
-                joinDate.textContent = formatDate(data.created_at);
-                if(data.bio){
-                    bio.textContent = data.bio;
-                    bio.style.opacity = '0.8';
-                }
-                repoNum.textContent = data.public_repos;
-                followerNum.textContent = data.followers;
-                followingNum.textContent = data.following;
-                if(data.location){
-                    locationName.textContent = data.location;
-                    locationName.style.opacity = '1';
-                }
-                if(data.twitter_username){
-                    twitterHandle.textContent = data.twitter_username;
-                    twitterHandle.href = `https://twitter.com/${data.twitter_username}`;
-                    twitterHandle.style.opacity = '1';
-                }
-                if(data.blog){
-                    website.href = data.blog;
-                    website.style.opacity = '1';
 
-                    //getting the domain name
-                    const urlBlog = new URL(data.blog);
-                    website.textContent = urlBlog.hostname;
-                }
-                if(data.company){
-                    compName.textContent = data.company;
-                    compName.style.opacity = '1';
-                }
-
-                userBox.style.animation = 'slideIn 2000ms';
-                header.style.animation = 'goUp 2000ms';
-                inputDiv.style.animation = 'goUp 2000ms ';
-                userBox.style.display = 'flex';
+            DesktopPic.src = data.avatar_url;
+            MobilePic.src = data.avatar_url;
+            actName.textContent = data.name;
+            userName.textContent = `@${data.login}`;
+            joinDate.textContent = formatDate(data.created_at);
+            if(data.bio){
+                bio.textContent = data.bio;
+                bio.style.opacity = '0.8';
             }
+            repoNum.textContent = data.public_repos;
+            followerNum.textContent = data.followers;
+            followingNum.textContent = data.following;
+            if(data.location){
+                locationName.textContent = data.location;
+                locationName.style.opacity = '1';
+            }
+            if(data.twitter_username){
+                twitterHandle.textContent = data.twitter_username;
+                twitterHandle.href = `https://twitter.com/${data.twitter_username}`;
+                twitterHandle.style.opacity = '1';
+            }
+            if(data.blog){
+                website.href = data.blog;
+                website.style.opacity = '1';
+
+                //getting the domain name
+                const urlBlog = new URL(data.blog);
+                website.textContent = urlBlog.hostname;
+            }
+            if(data.company){
+                compName.textContent = data.company;
+                compName.style.opacity = '1';
+            }
+
+            userBox.style.animation = 'slideIn 2000ms';
+            header.style.animation = 'goUp 2000ms';
+            inputDiv.style.animation = 'goUp 2000ms ';
+            userBox.style.display = 'flex';
         })
         .catch(error => {
             userBox.style.display = 'none';
