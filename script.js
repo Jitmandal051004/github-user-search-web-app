@@ -83,9 +83,9 @@ function fetchData() {
             header.style.animation = 'errorMotion 80ms linear 6 alternate';
             inputDiv.style.animation = 'errorMotion 80ms linear 6 alternate';
 
-            // setTimeout(() => {
-            //     location.reload();
-            // }, 2000);
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
         })
 }
 
