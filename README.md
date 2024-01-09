@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- [Live Site URL](https://your-live-site-url.com)
+- [Live Site URL](https://jitmandal051004.github.io/github-user-search-web-app/)
 
 ## My process
 
